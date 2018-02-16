@@ -11,6 +11,7 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'turbolinks'
 
+require 'active_job'
 
 # run with `bundle install --without production` or `bundle install --without mysql` to exclude this
 group :mysql, :production do
@@ -109,3 +110,5 @@ gem 'jbuilder'
 
 # Pin mustermann to Ruby 2.1 compatible
 gem 'mustermann' , '~> 0.4'
+
+gem 'mailman', require: false

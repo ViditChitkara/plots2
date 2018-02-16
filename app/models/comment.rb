@@ -142,4 +142,13 @@ class Comment < ActiveRecord::Base
     notify_users(uids, current_user)
     notify_tag_followers(already + uids)
   end
+
+  def self.receive_mail(message)
+    node_id = message.subject[/^\#(\d+)$/, 1] # this grabs the node ID from the subject line
+    node = Node.find(node_id)
+    user = User.find_by(email: message.from.first)
+    if node_id.present? && user.present?
+      comment = node.add_comment(uid: user.uid, body: message.body.decoded)
+    end
+  end
 end

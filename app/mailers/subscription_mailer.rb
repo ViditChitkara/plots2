@@ -46,4 +46,12 @@ class SubscriptionMailer < ActionMailer::Base
     end
     @footer = feature('email-footer')
   end
+
+  def send_digest(user, top_picks)
+    subject = "Your weekly digest"
+    @user = user
+    @top_picks = top_picks
+    @footer = feature('email-footer')
+    mail(to: user.email, subject: subject).deliver
+  end
 end
