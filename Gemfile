@@ -11,8 +11,6 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'turbolinks'
 
-require 'active_job'
-
 # run with `bundle install --without production` or `bundle install --without mysql` to exclude this
 group :mysql, :production do
   gem 'mysql2', '~> 0.3.20'
