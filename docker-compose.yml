@@ -18,6 +18,7 @@ services:
       # if you want to re-import simply put away ../mysql/*
   redis:
     image: redis:latest
+    network_mode: "service:web"
   web:
     build: .
     command: /bin/bash -c "sleep 5 && passenger start -p 4000"
